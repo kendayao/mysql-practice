@@ -1,10 +1,9 @@
 
-CREATE DATABASE ice_creamDB;
-CREATE DATABASE chirpy;
+CREATE DATABASE chirpy_db;
 USE chirpy;
 
-CREATE TABLE `chirpy` (
-    `id` Int(11) AUTO_INCREMENT NOT NULL,
+CREATE TABLE `chirps` (
+    `id` INT AUTO_INCREMENT NOT NULL,
     `author` VARCHAR(255) NOT NULL,
     `body` VARCHAR(255) NOT NULL,
     `created_at`DATETIME NOT NULL,
