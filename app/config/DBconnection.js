@@ -11,24 +11,14 @@ var connection = mysql.createConnection({
     port: 3306,
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
-    database: "ice_creamDB"
+    database: "chirpy_db"
 
 })
 
 connection.connect(function(err){
     if (err) throw err;
-    console.log("connectd as id " + connection.threadId + "\n")
-    afterConnection();
+    
+    console.log("connected as id " + connection.threadId)
 })
 
-
-
-
-function afterConnection() {
-    connection.query("SELECT * FROM products", function(err, res) {
-      if (err) throw err;
-      console.log(res);
-      connection.end();
-    });
-  }
-
+module.exports = connection;
