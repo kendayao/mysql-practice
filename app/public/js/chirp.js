@@ -13,7 +13,7 @@ $.get("/api/all", function(data) {
         row.append("<p>" + data[i].author + " chirped.. </p>");
         row.append("<p>" + data[i].body + "</p>");
         row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
-  
+        row.append("<button class='delete-btn' data=" + data[i].id + ">X</button>")
         $("#chirp-area").prepend(row);
   
       }
@@ -42,11 +42,10 @@ $.get("/api/all", function(data) {
   
         var row = $("<div>");
         row.addClass("chirp");
-  
         row.append("<p>" + newChirp.author + " chirped: </p>");
         row.append("<p>" + newChirp.body + "</p>");
         row.append("<p>At " + moment(newChirp.created_at).format("h:mma on dddd") + "</p>");
-  
+        row.append("<button class='delete-btn'>X</button>")
         $("#chirp-area").prepend(row);
   
       });
@@ -56,3 +55,10 @@ $.get("/api/all", function(data) {
     $("#chirp-box").val("");
   });
   
+  $(".delete-btn").on("click", function(event){
+    
+    console.log('clicked')
+
+    // var noteID = $(this).attr("data")
+    // console.log(noteID)
+  })
