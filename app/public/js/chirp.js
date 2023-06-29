@@ -6,7 +6,22 @@ $.get("/api/all", function(data) {
     if (data.length !== 0) {
   
       for (var i = 0; i < data.length; i++) {
-  
+
+        // var row = $("<div>")
+        // row.attr("class", "chirp")
+
+        // pAuthor=$("<p>")
+        // pAuthor.text(data[i].author + " chirped")
+        // row.append(pAuthor)
+
+        // deleteButton=$("<button>")
+        // deleteButton.text("X")
+        // deleteButton.attr("class:delete")
+        // row.append(deleteButton)
+
+        // $("#chirp-area").prepend(row)
+
+
         var row = $("<div>");
         row.addClass("chirp");
   
@@ -19,6 +34,9 @@ $.get("/api/all", function(data) {
       }
   
     }
+
+    
+
   
   });
   
@@ -40,13 +58,13 @@ $.get("/api/all", function(data) {
       // On success, run the following code
       .then(function() {
   
-        var row = $("<div>");
-        row.addClass("chirp");
-        row.append("<p>" + newChirp.author + " chirped: </p>");
-        row.append("<p>" + newChirp.body + "</p>");
-        row.append("<p>At " + moment(newChirp.created_at).format("h:mma on dddd") + "</p>");
-        row.append("<button class='delete-btn'>X</button>")
-        $("#chirp-area").prepend(row);
+        // var row = $("<div>");
+        // row.addClass("chirp");
+        // row.append("<p>" + newChirp.author + " chirped: </p>");
+        // row.append("<p>" + newChirp.body + "</p>");
+        // row.append("<p>At " + moment(newChirp.created_at).format("h:mma on dddd") + "</p>");
+        // row.append("<button class='delete-btn'>X</button>")
+        // $("#chirp-area").prepend(row);
   
       });
   
@@ -55,9 +73,12 @@ $.get("/api/all", function(data) {
     $("#chirp-box").val("");
   });
   
-  $(".delete-btn").on("click", function(event){
-    
+  $("#chirp-area").on("click", ".delete-btn", function(event){
+    event.preventDefault();
     console.log('clicked')
+
+    var chirpId=$(this).attr("data")
+    console.log(chirpId)
 
     // var noteID = $(this).attr("data")
     // console.log(noteID)
